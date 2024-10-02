@@ -1,0 +1,43 @@
+.....F..F........F.Failed to move piece from (0, 0, 0) to (1, 1, 1).
+.......Unknown piece type: X
+...F.......
+======================================================================
+FAIL: test_initialize_board (test.TestChess3D)
+Tests that the board initializes with the correct number of pieces.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gideon/projects/tmp/3D-chess/test.py", line 463, in test_initialize_board
+    self.assertEqual(total_pieces, expected_pieces)
+AssertionError: 56 != 64
+
+======================================================================
+FAIL: test_is_clear_path_invalid_movement (test.TestChess3D)
+Tests is_clear_path with invalid movement pattern.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gideon/projects/tmp/3D-chess/test.py", line 347, in test_is_clear_path_invalid_movement
+    self.assertFalse(is_clear_path(self.board, (0, 0, 0), (2, 1, 0)))  # Not a straight line or diagonal
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_knight_valid_moves (test.TestChess3D)
+Tests valid knight moves.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gideon/projects/tmp/3D-chess/test.py", line 152, in test_knight_valid_moves
+    self.assertTrue(knight.is_valid_move(move, self.board))
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_queen_invalid_moves (test.TestChess3D)
+Tests invalid queen moves.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/gideon/projects/tmp/3D-chess/test.py", line 239, in test_queen_invalid_moves
+    self.assertFalse(queen.is_valid_move((2, 1, 0), self.board))
+AssertionError: True is not false
+
+----------------------------------------------------------------------
+Ran 37 tests in 2.171s
+
+FAILED (failures=4)
