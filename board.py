@@ -116,8 +116,17 @@ class Board:
 
     def move_piece(self, from_pos: Position, to_pos: Position) -> bool:
         """Moves a piece from one position to another if the move is valid."""
-        # Existing implementation
-        pass
+        piece = self.get_piece(from_pos)
+        if piece and piece.is_valid_move(to_pos, self):
+            self.set_piece(to_pos, piece)
+            self.set_piece(from_pos, None)
+            piece.position = to_pos
+            logger.info(f"Moved {piece} from {from_pos} to {to_pos}.")
+            return True
+        else:
+            logger.warning(f"Failed to move piece from {from_pos} to {to_pos}.")
+            return False
+
 
     def is_within_bounds(self, position: Position) -> bool:
         """Checks if a position is within the board boundaries."""

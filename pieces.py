@@ -6,6 +6,7 @@ from abc import ABC, abstractmethod
 from typing import Tuple, TYPE_CHECKING
 
 from utils import is_clear_path
+
 if TYPE_CHECKING:
     from board import Board
 
